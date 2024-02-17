@@ -1,9 +1,7 @@
-import streamlit as st
+import streamlit 
 
-st.title ("this is the app title")
-st.header("this is the markdown")
-st.markdown("this is the header")
-st.subheader("this is the subheader")
-st.caption("this is the caption")
-st.code("x=2021")
-st.latex(r''' a+a r^1+a r^2+a r^3 ''')
+streamlit.title ("My Parets healthy dinner")
+streamlit.header('Breakfast Menu')
+streamlit.text('Omega 3 & Blueberry Oatmeal')
+streamlit.text('Kale, Spinach & Rocket Smoothie')
+streamlit.text('Hard-Boiled Free-Range Egg')
