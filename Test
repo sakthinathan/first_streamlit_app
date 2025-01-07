@@ -1,0 +1,152 @@
+1. Project Setup
+ * Choose a Framework:
+   * Popular Options:
+     * React: A JavaScript library for building user interfaces.
+     * Vue.js: Another popular JavaScript framework for building user interfaces.
+     * Angular: A powerful framework for building complex applications.
+     * If you prefer simpler solutions:
+       * Vanilla JavaScript: You can build it using plain JavaScript, HTML, and CSS.
+       * jQuery: A JavaScript library that simplifies HTML DOM manipulation.
+ * Project Structure (Example - React):
+   * src/
+     * components/
+       * ProductTable.js
+       * ProductRow.js
+       * ProductForm.js
+     * App.js
+     * styles.css
+     * index.js
+2. Component Structure
+ * ProductTable.js:
+   * Renders a table to display the list of products.
+   * Includes rows for each product.
+   * Calculates and displays the difference between source and target quantities.
+ * ProductRow.js:
+   * Renders a single row in the table.
+   * Displays product name, source quantity, target quantity, and the difference.
+ * ProductForm.js:
+   * Contains input fields for adding new products.
+   * Handles form submission and adds new products to the list.
+3. Core Logic (JavaScript Example)
+// ProductTable.js
+import React, { useState } from 'react';
+import ProductRow from './ProductRow';
+import ProductForm from './ProductForm';
+
+function ProductTable() {
+  const [products, setProducts] = useState([]);
+
+  const handleAddProduct = (newProduct) => {
+    setProducts([...products, newProduct]);
+  };
+
+  return (
+    <div>
+      <h1>Product Inventory</h1>
+      <ProductForm onAddProduct={handleAddProduct} />
+      <table>
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Source Quantity</th>
+            <th>Target Quantity</th>
+            <th>Difference</th>
+          </tr>
+        </thead>
+        <tbody>
+          {products.map((product) => (
+            <ProductRow key={product.name} product={product} />
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+export default ProductTable;
+
+// ProductRow.js
+import React from 'react';
+
+function ProductRow({ product }) {
+  const difference = product.sourceQuantity - product.targetQuantity;
+
+  return (
+    <tr>
+      <td>{product.name}</td>
+      <td>{product.sourceQuantity}</td>
+      <td>{product.targetQuantity}</td>
+      <td>{difference}</td>
+    </tr>
+  );
+}
+
+export default ProductRow;
+
+// ProductForm.js
+import React, { useState } from 'react';
+
+function ProductForm({ onAddProduct }) {
+  const [name, setName] = useState('');
+  const [sourceQuantity, setSourceQuantity] = useState('');
+  const [targetQuantity, setTargetQuantity] = useState('');
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const newProduct = {
+      name,
+      sourceQuantity: parseInt(sourceQuantity),
+      targetQuantity: parseInt(targetQuantity),
+    };
+    onAddProduct(newProduct);
+    setName('');
+    setSourceQuantity('');
+    setTargetQuantity('');
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label htmlFor="name">Product Name:</label>
+        <input
+          type="text"
+          id="name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+      </div>
+      <div>
+        <label htmlFor="sourceQuantity">Source Quantity:</label>
+        <input
+          type="number"
+          id="sourceQuantity"
+          value={sourceQuantity}
+          onChange={(e) => setSourceQuantity(e.target.value)}
+        />
+      </div>
+      <div>
+        <label htmlFor="targetQuantity">Target Quantity:</label>
+        <input
+          type="number"
+          id="targetQuantity"
+          value={targetQuantity}
+          onChange={(e) => setTargetQuantity(e.target.value)}
+        />
+      </div>
+      <button type="submit">Add Product</button>
+    </form>
+  );
+}
+
+export default ProductForm;
+
+4. Styling (CSS)
+ * Create a CSS file (styles.css) to style the table, inputs, and other elements.
+5. Run the Application
+ * Use a development server to run your application (e.g., npm start for React).
+This is a basic example. You can enhance it further by:
+ * Adding features like editing, deleting, and sorting products.
+ * Implementing data persistence (e.g., using a local storage or a database).
+ * Improving the user interface with better styling and responsiveness.
+Remember to adapt this code to your chosen framework and specific requirements.
+ * https://github.com/Rudegeza/franchise
