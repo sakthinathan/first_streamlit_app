@@ -1,0 +1,84 @@
+Certainly, here's the sample code for App.js, styles.css, and index.js based on the React component structure provided earlier:
+App.js
+import React from 'react';
+import ProductTable from './components/ProductTable';
+import './styles.css'; 
+
+function App() {
+  return (
+    <div className="container">
+      <ProductTable />
+    </div>
+  );
+}
+
+export default App;
+
+styles.css
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+index.js
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
+
+Explanation:
+ * App.js:
+   * Imports ProductTable and styles.css.
+   * Renders the ProductTable component within a div with a class of container.
+ * styles.css:
+   * Contains basic CSS styles for the container, table, table cells, input fields, and the button.
+   * You can customize these styles further to match your desired look and feel.
+ * index.js:
+   * Imports React, ReactDOM, and App.
+   * Renders the App component into the root element of the HTML page (usually an element with the ID of "root").
+To use this code:
+ * Create the necessary files: Create files named App.js, styles.css, index.js, and the component files (ProductTable.js, ProductRow.js, ProductForm.js) within the src directory of your React project.
+ * Paste the code: Paste the code from each file into the corresponding file.
+ * Run the development server: Start your development server (e.g., npm start) to see the application running in your browser.
+This provides a basic structure and styling. You can further customize the components, add more features, and refine the styling to match your specific needs.
+ * https://cpulifes.com/google-earth-not-showing-earth/
+ * https://github.com/JonathanMena/actividades_de_DAW_06L_MD232400_Guia1
+ * https://github.com/mustafagamal51112/we_school
+ * https://github.com/LamNguyen2001/DockerTesting
+ * https://github.com/haeyonghahn/react-for-beginners
+ * https://www.bairesdev.com/blog/react-spa-single-page-application/
